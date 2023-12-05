@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\NUnit.4.0.1\build\NUnit.props" Condition="Exists('..\packages\NUnit.4.0.1\build\NUnit.props')" />
+  <Import Project="..\packages\Microsoft.NET.Test.Sdk.17.8.0\build\net462\Microsoft.NET.Test.Sdk.props" Condition="Exists('..\packages\Microsoft.NET.Test.Sdk.17.8.0\build\net462\Microsoft.NET.Test.Sdk.props')" />
+  <Import Project="..\packages\Microsoft.CodeCoverage.17.8.0\build\netstandard2.0\Microsoft.CodeCoverage.props" Condition="Exists('..\packages\Microsoft.CodeCoverage.17.8.0\build\netstandard2.0\Microsoft.CodeCoverage.props')" />
+  <Import Project="..\packages\NUnit3TestAdapter.4.5.0\build\net462\NUnit3TestAdapter.props" Condition="Exists('..\packages\NUnit3TestAdapter.4.5.0\build\net462\NUnit3TestAdapter.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{63A67BB1-10DC-480E-BB0C-3C2501C24815}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>WebTestingProject</RootNamespace>
+    <AssemblyName>WebTestingProject</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualStudio.CodeCoverage.Shim, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeCoverage.17.8.0\lib\net462\Microsoft.VisualStudio.CodeCoverage.Shim.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework, Version=4.0.1.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.4.0.1\lib\net462\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework.legacy, Version=4.0.1.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.4.0.1\lib\net462\nunit.framework.legacy.dll</HintPath>
+    </Reference>
+    <Reference Include="SeleniumExtras.PageObjects, Version=4.14.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetSeleniumExtras.PageObjects.Core.4.14.1\lib\net462\SeleniumExtras.PageObjects.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Common, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Drawing.Common.8.0.0\lib\net462\System.Drawing.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WebDriver, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Selenium.WebDriver.4.15.0\lib\netstandard2.0\WebDriver.dll</HintPath>
+    </Reference>
+    <Reference Include="WebDriver.Support, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Selenium.Support.4.15.0\lib\netstandard2.0\WebDriver.Support.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Action.cs" />
+    <Compile Include="Cases\AboutPageIsVisible.cs" />
+    <Compile Include="Cases\AlertBoxPostPageIsVisible.cs" />
+    <Compile Include="Cases\DragAndDropPageIsVisible.cs" />
+    <Compile Include="Cases\CheckButtonTestPostPageIsVisible.cs" />
+    <Compile Include="Cases\ClassNamePostPageIsVisible.cs" />
+    <Compile Include="Cases\CSSPathPostPageIsVisible.cs" />
+    <Compile Include="Cases\DragAndDrop_InActionsFolderIsVisible.cs" />
+    <Compile Include="Cases\DropDownMenuTestPostPageIsVisible.cs" />
+    <Compile Include="Cases\HomePageIsVisible.cs" />
+    <Compile Include="Cases\IDPostPageIsVisible.cs" />
+    <Compile Include="Cases\ItemInCategoryDropDownMenuPostPageIsVisible.cs" />
+    <Compile Include="Cases\LoginButtonInLoginFormPostPageIsVisible.cs" />
+    <Compile Include="Cases\LoginFormPostPageIsVisible.cs" />
+    <Compile Include="Cases\LoginValidLogin.cs" />
+    <Compile Include="Cases\MenuBarIsVisible.cs" />
+    <Compile Include="Cases\NamePostPageIsVisible.cs" />
+    <Compile Include="Cases\NewTabPostIsVisible.cs" />
+    <Compile Include="Cases\RadioButtonTestPostPageIsVisible.cs" />
+    <Compile Include="Cases\RegisterFormPostPageIsVisible.cs" />
+    <Compile Include="Cases\RegisterValidTest.cs" />
+    <Compile Include="Cases\RightSideBarDropDownListTest.cs" />
+    <Compile Include="Cases\RightSideBarIsVisible.cs" />
+    <Compile Include="Cases\TextInputFieldPostPageIsVisible.cs" />
+    <Compile Include="Cases\UsernameFieldInLoginFormPostPageIsVisible.cs" />
+    <Compile Include="Cases\XPathPostPageIsVisible.cs" />
+    <Compile Include="Config.cs" />
+    <Compile Include="EntryPoint.cs" />
+    <Compile Include="NavigateTo.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Scenarios\CheckBoxTest.cs" />
+    <Compile Include="Scenarios\DragAndDrop.cs" />
+    <Compile Include="Scenarios\DropDownMenuTest.cs" />
+    <Compile Include="Scenarios\LoginInvalidPasswordAndUsername.cs" />
+    <Compile Include="Scenarios\Page_1_DateLink_22and17_2_2016IsVisible.cs" />
+    <Compile Include="Scenarios\Page_1_Todor_Vachev_Link_IsVisible.cs" />
+    <Compile Include="Scenarios\Page_2_DateLink_22and17_2_2016IsVisible.cs" />
+    <Compile Include="Scenarios\Page_2_Todor_Vachev_Link_IsVisible.cs" />
+    <Compile Include="Scenarios\RadioButtonTest.cs" />
+    <Compile Include="Scenarios\RegisterInvalidDetails.cs" />
+    <Compile Include="Scenarios\SelectorsPageIsVisible.cs" />
+    <Compile Include="Scenarios\SpecialElementsPageIsVisible.cs" />
+    <Compile Include="Scenarios\TestCasesPageIsVisible.cs" />
+    <Compile Include="Scenarios\TestScenariosPageIsVisible.cs" />
+    <Compile Include="UI Elements\About.cs" />
+    <Compile Include="UI Elements\ActionFolder.cs" />
+    <Compile Include="UI Elements\AlertBoxPost.cs" />
+    <Compile Include="UI Elements\Check_Button_Test_Post.cs" />
+    <Compile Include="UI Elements\ClassNamePost.cs" />
+    <Compile Include="UI Elements\CSSPathPost.cs" />
+    <Compile Include="UI Elements\Date_Link_29and26_2_2017.cs" />
+    <Compile Include="UI Elements\DragAndDrop_In_Action_Folder.cs" />
+    <Compile Include="UI Elements\DragAndDrop_Page.cs" />
+    <Compile Include="UI Elements\NewTab_Post.cs" />
+    <Compile Include="UI Elements\Page_1_DateLink_22and17_2_2016.cs" />
+    <Compile Include="UI Elements\Drop_Down_Menu_Test_Post.cs" />
+    <Compile Include="UI Elements\HomePage.cs" />
+    <Compile Include="UI Elements\IDPost.cs" />
+    <Compile Include="UI Elements\CommentSection.cs" />
+    <Compile Include="UI Elements\Item_In_Category_Drop_Down_Menu_Post.cs" />
+    <Compile Include="UI Elements\LoginFormPost.cs" />
+    <Compile Include="UI Elements\Login_Button_In_Login_Form_Post.cs" />
+    <Compile Include="UI Elements\Menu.cs" />
+    <Compile Include="UI Elements\NamePost.cs" />
+    <Compile Include="UI Elements\Page_1_Todor_Vachev_Link.cs" />
+    <Compile Include="UI Elements\Page_2_DateLink_22and17_2_2016.cs" />
+    <Compile Include="UI Elements\Page_2_Todor_Vachev_Link.cs" />
+    <Compile Include="UI Elements\Radio_Button_Test_Post.cs" />
+    <Compile Include="UI Elements\RegisterFormPost.cs" />
+    <Compile Include="UI Elements\RightSideBar.cs" />
+    <Compile Include="UI Elements\Selectors.cs" />
+    <Compile Include="UI Elements\SpecialElements.cs" />
+    <Compile Include="UI Elements\Tabs_and_Windows_Folder.cs" />
+    <Compile Include="UI Elements\TestCases.cs" />
+    <Compile Include="UI Elements\TestScenarios.cs" />
+    <Compile Include="UI Elements\Text_Input_field_Post.cs" />
+    <Compile Include="UI Elements\Username_Field_In_Login_Form_Post.cs" />
+    <Compile Include="UI Elements\XpathPost.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+    <None Include="README.md" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\NUnit3TestAdapter.4.5.0\build\net462\NUnit3TestAdapter.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit3TestAdapter.4.5.0\build\net462\NUnit3TestAdapter.props'))" />
+    <Error Condition="!Exists('..\packages\Selenium.WebDriver.4.15.0\build\Selenium.WebDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.WebDriver.4.15.0\build\Selenium.WebDriver.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeCoverage.17.8.0\build\netstandard2.0\Microsoft.CodeCoverage.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeCoverage.17.8.0\build\netstandard2.0\Microsoft.CodeCoverage.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeCoverage.17.8.0\build\netstandard2.0\Microsoft.CodeCoverage.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeCoverage.17.8.0\build\netstandard2.0\Microsoft.CodeCoverage.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.NET.Test.Sdk.17.8.0\build\net462\Microsoft.NET.Test.Sdk.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.NET.Test.Sdk.17.8.0\build\net462\Microsoft.NET.Test.Sdk.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.NET.Test.Sdk.17.8.0\build\net462\Microsoft.NET.Test.Sdk.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.NET.Test.Sdk.17.8.0\build\net462\Microsoft.NET.Test.Sdk.targets'))" />
+    <Error Condition="!Exists('..\packages\NUnit.4.0.1\build\NUnit.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit.4.0.1\build\NUnit.props'))" />
+  </Target>
+  <Import Project="..\packages\Selenium.WebDriver.4.15.0\build\Selenium.WebDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.4.15.0\build\Selenium.WebDriver.targets')" />
+  <Import Project="..\packages\Microsoft.CodeCoverage.17.8.0\build\netstandard2.0\Microsoft.CodeCoverage.targets" Condition="Exists('..\packages\Microsoft.CodeCoverage.17.8.0\build\netstandard2.0\Microsoft.CodeCoverage.targets')" />
+  <Import Project="..\packages\Microsoft.NET.Test.Sdk.17.8.0\build\net462\Microsoft.NET.Test.Sdk.targets" Condition="Exists('..\packages\Microsoft.NET.Test.Sdk.17.8.0\build\net462\Microsoft.NET.Test.Sdk.targets')" />
+</Project>
