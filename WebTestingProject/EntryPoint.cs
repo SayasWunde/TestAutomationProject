@@ -17,12 +17,9 @@ namespace WebTestingProject
         {
             /*
            
-            Hello , welcom to my auto  testing code !
+            Hello , Linkdin !
             
             try run the test separately if failed
-
-
-            SAYAS WUNDE :)
        
             */
 
